@@ -1,6 +1,6 @@
 # Astra Lite
 
-A Python-based AI voice assistant project developed as an MCA mini project.
+A Python-based AI voice assistant project developed as an MCA Student project.
 
 ## Features
 
@@ -9,7 +9,7 @@ A Python-based AI voice assistant project developed as an MCA mini project.
 - Website Automation
 - Desktop Automation
 - Screenshot Capture
-- AI Integration (Planned)
+- AI Integration
 
 ## Technologies
 

@@ -1,12 +1,5 @@
-from ai import ask_gemini
+import pyttsx3
 
-while True:
+from speech import speak
 
-    question = input("You: ")
-
-    if question.lower() == "exit":
-        break
-
-    answer = ask_gemini(question)
-
-    print("Astra:", answer)
+speak("Hello Ravi, I am ASTRA")
