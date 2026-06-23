@@ -1,4 +1,5 @@
 from speech import speak, listen
+from commands import execute_command
 
 speak("Hello Ravi, I am Astra")
 
@@ -8,8 +9,14 @@ while True:
 
     if command:
 
-        speak("You said " + command)
+        result = execute_command(command)
 
-        if command == "stop":
+        if result:
+            speak(result)
+
+        elif command == "stop":
             speak("Goodbye")
             break
+
+        else:
+            speak("I do not know that command yet")
