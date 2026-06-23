@@ -2,24 +2,30 @@ from logger import log_command
 from speech import speak, listen
 from commands import execute_command
 
-speak("Hello Ravi I am Astra")
+speak("Hello Ravi, I am Astra")
 
 while True:
 
     command = listen()
 
-    if command:
+    if not command:
+        continue
 
-        log_command(command)   # <-- Add this line
+    command = command.lower()
 
-        result = execute_command(command)
+    # Remove wake word if present
+    command = command.replace("astra", "").strip()
 
-        if result:
-            speak(result)
+    if command == "stop":
+        speak("Goodbye")
+        break
 
-        elif command == "stop":
-            speak("Goodbye")
-            break
+    log_command(command)
 
-        else:
-            speak("I do not know that command yet")
+    result = execute_command(command)
+
+    if result:
+        speak(result)
+
+    else:
+        speak("I do not know that command yet")

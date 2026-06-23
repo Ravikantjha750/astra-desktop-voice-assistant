@@ -1,5 +1,0 @@
-2026-06-23 22:01:01 -> open netflix
-2026-06-23 22:01:07 -> open flipkart
-2026-06-23 22:01:16 -> what is the time
-2026-06-23 22:01:42 -> tell me today's date
-2026-06-23 22:01:50 -> stop
