@@ -1,3 +1,4 @@
+from datetime import datetime
 import webbrowser
 import subprocess
 
@@ -10,6 +11,17 @@ def execute_command(command):
     if command == "open notepad":
         subprocess.Popen("notepad")
         return "Opening Notepad"
+    elif "time" in command:
+
+        current_time = datetime.now().strftime("%I:%M %p")
+
+        return f"The time is {current_time}"
+
+    elif "date" in command:
+
+        current_date = datetime.now().strftime("%d %B %Y")
+
+        return f"Today's date is {current_date}"
 
     elif command == "open calculator":
         subprocess.Popen("calc")
