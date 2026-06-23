@@ -1,6 +1,9 @@
 from datetime import datetime
+from datetime import datetime
 import webbrowser
 import subprocess
+import pyautogui
+
 
 def execute_command(command):
 
@@ -22,6 +25,18 @@ def execute_command(command):
         current_date = datetime.now().strftime("%d %B %Y")
 
         return f"Today's date is {current_date}"
+
+    elif "screenshot" in command:
+
+        filename = datetime.now().strftime(
+            "screenshots/screenshot_%Y%m%d_%H%M%S.png"
+        )
+
+        screenshot = pyautogui.screenshot()
+
+        screenshot.save(filename)
+
+        return "Screenshot saved successfully"
 
     elif command == "open calculator":
         subprocess.Popen("calc")

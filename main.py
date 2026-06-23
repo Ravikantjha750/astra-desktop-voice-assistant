@@ -1,7 +1,7 @@
 from speech import speak, listen
 from commands import execute_command
 
-speak("Hello Ravi, I am Astra")
+speak("Hello Ravi I am Astra")
 
 while True:
 
