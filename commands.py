@@ -1,3 +1,4 @@
+import pywhatkit
 from volume_control import (
     set_volume,
     mute_volume,
@@ -123,6 +124,13 @@ def execute_command(command):
         unmute_volume()
 
         return "Volume unmuted"
+    elif command.startswith("play "):
+
+        song = command.replace("play ", "").strip()
+
+        pywhatkit.playonyt(song)
+
+        return f"Playing {song} on YouTube"
 
     elif command.startswith("open "):
         site = command.replace("open ", "").strip()
