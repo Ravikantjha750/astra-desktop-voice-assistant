@@ -15,25 +15,29 @@ def execute_command(command):
 
 
     command = command.lower()
-    if command.startswith("remember my name is"):
+    # Dynamic Memory System
 
-        name = command.replace(
-            "remember my name is",
-            ""
-        ).strip()
+    if command.startswith("remember my"):
 
-        save_memory("name", name)
+        data = command.replace("remember my", "").strip()
 
-        return f"I will remember that your name is {name}"
+        if " is " in data:
+            key, value = data.split(" is ", 1)
 
-    elif command == "what is my name":
+            save_memory(key.strip(), value.strip())
+
+            return f"I will remember your {key}"
+
+    elif command.startswith("what is my"):
+
+        key = command.replace("what is my", "").strip()
 
         memory = load_memory()
 
-        if "name" in memory:
-            return f"Your name is {memory['name']}"
+        if key in memory:
+            return f"Your {key} is {memory[key]}"
 
-        return "I do not know your name yet"
+        return f"I do not know your {key} yet"
 
     if command == "open notepad":
         subprocess.Popen("notepad")
