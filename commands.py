@@ -1,4 +1,9 @@
-from datetime import datetime
+from volume_control import (
+    set_volume,
+    mute_volume,
+    unmute_volume
+)
+from memory import save_memory, load_memory
 from datetime import datetime
 import webbrowser
 import subprocess
@@ -10,6 +15,25 @@ def execute_command(command):
 
 
     command = command.lower()
+    if command.startswith("remember my name is"):
+
+        name = command.replace(
+            "remember my name is",
+            ""
+        ).strip()
+
+        save_memory("name", name)
+
+        return f"I will remember that your name is {name}"
+
+    elif command == "what is my name":
+
+        memory = load_memory()
+
+        if "name" in memory:
+            return f"Your name is {memory['name']}"
+
+        return "I do not know your name yet"
 
     if command == "open notepad":
         subprocess.Popen("notepad")
@@ -63,6 +87,38 @@ def execute_command(command):
         )
 
         return "Opening VS Code"
+    elif "set volume to" in command:
+
+        try:
+
+            percent = int(
+                command.split("set volume to")[1]
+                .replace("%", "")
+                .replace("percent", "")
+                .strip()
+            )
+
+            percent = max(0, min(100, percent))
+
+            set_volume(percent)
+
+            return f"Volume set to {percent} percent"
+
+        except Exception as e:
+
+            return f"Volume error: {e}"
+
+    elif "mute volume" in command:
+
+        mute_volume()
+
+        return "Volume muted"
+
+    elif "unmute volume" in command:
+
+        unmute_volume()
+
+        return "Volume unmuted"
 
     elif command.startswith("open "):
         site = command.replace("open ", "").strip()
