@@ -1,3 +1,4 @@
+import os
 import pywhatkit
 from volume_control import (
     set_volume,
@@ -131,6 +132,34 @@ def execute_command(command):
         pywhatkit.playonyt(song)
 
         return f"Playing {song} on YouTube"
+
+    elif command == "lock computer":
+
+        os.system(
+            "rundll32.exe user32.dll,LockWorkStation"
+        )
+
+        return "Locking computer"
+
+    elif command == "shutdown computer":
+
+        os.system("shutdown /s /t 5")
+
+        return "Shutting down computer"
+
+    elif command == "restart computer":
+
+        os.system("shutdown /r /t 5")
+
+        return "Restarting computer"
+
+    elif command == "sleep computer":
+
+        os.system(
+            "rundll32.exe powrprof.dll,SetSuspendState 0,1,0"
+        )
+
+        return "Putting computer to sleep"
 
     elif command.startswith("open "):
         site = command.replace("open ", "").strip()
