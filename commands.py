@@ -141,17 +141,26 @@ def execute_command(command):
 
         return "Locking computer"
 
+
     elif command == "shutdown computer":
 
-        os.system("shutdown /s /t 5")
+        os.system("shutdown /s /t 10")
 
-        return "Shutting down computer"
+        return "Computer will shut down in 10 seconds. Say 'cancel shutdown' to abort."
+
 
     elif command == "restart computer":
 
-        os.system("shutdown /r /t 5")
+        os.system("shutdown /r /t 10")
 
-        return "Restarting computer"
+        return "Computer will restart in 10 seconds. Say 'cancel shutdown' to abort."
+
+
+    elif command == "cancel shutdown":
+
+        os.system("shutdown /a")
+
+        return "Shutdown or restart has been cancelled."
 
     elif command == "sleep computer":
 
