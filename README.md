@@ -1,7 +1,7 @@
-# ASTRA – AI Desktop Assistant
+# ASTRA – Desktop Voice Assistant
 
 <p align="center">
-  <strong>An AI-powered desktop assistant built with Python that automates everyday computer tasks using voice commands.</strong>
+  <strong>A Python-based desktop voice assistant that automates everyday computer tasks using speech recognition and voice commands.</strong>
 </p>
 
 ---
@@ -33,31 +33,33 @@
 
 ## Desktop Application Launcher
 
-![Open VS Code](screenshots/02-open-vscode.png)
+![Open App](screenshots/02-open-app.png)
 
 ---
 
 ## Website Automation
 
-![Website Automation](screenshots/03-open-netflix.png)
+![Website 1](screenshots/03-open-website.png)
+
+![Website 2](screenshots/04-open-website.png)
 
 ---
 
 ## YouTube Song Playback
 
-![YouTube](screenshots/04-play-song.png)
+![Play Song](screenshots/05-play-song.png)
 
 ---
 
 ## System Volume Control
 
-![Volume](screenshots/05-volume-control.png)
+![Voice Control](screenshots/06-voice-control.png)
 
 ---
 
 ## Project Structure
 
-![Project Structure](screenshots/06-project-structure.png)
+![Project Structure](screenshots/07-project-structure.png)
 
 ---
 
